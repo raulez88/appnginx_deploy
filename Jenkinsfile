@@ -14,8 +14,7 @@ node {
                         sh "git config user.name Raulez88"
                         //sh "git switch master"
                         sh "cat nginx-deployment.yaml"
-                        sh "sed -i 's/6618959785907.dkr.ecr.eu-west-1.amazonaws.com//nginxcustomimage.*/618959785907.dkr.ecr.eu-west-1.amazonaws.com//nginxcustomimage:${DOCKERTAG}/g' nginx-deployment.yaml"
-    
+                        sh "sed -i 's/nginxcustomimage.*/nginxcustomimage:${DOCKERTAG}/g' nginx-deployment.yaml"
                         sh "cat nginx-deployment.yaml"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
